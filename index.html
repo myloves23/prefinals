@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number Properties</title>
+</head>
+<body>
+    <h1>Number Properties Checker</h1>
+    <p>Enter a number:</p>
+    <input type="number" id="numInput" name="numInput">
+    <button onclick="checkNumberProperties()">Check Number Properties</button>
+    <div id="resultBox"></div>
+
+    <script>
+        function checkNumberProperties() {
+            var num = document.getElementById('numInput').value;
+
+            // Create lists for odd and even numbers
+            var odds = [1]; // Start with 1 in odd numbers
+            var evens = [];
+
+            // Check if number is prime and build lists
+            for (var i = 2; i <= num; i++) {
+                if (i % 2 === 0) {
+                    evens.push(i);
+                } else {
+                    odds.push(i);
+                }
+            }
+
+            // Create HTML string with result
+            var result = '<h2>Number Properties:</h2>';
+            result += '<p>Number: ' + num + '</p>';
+            result += '<p>Odd numbers: ' + odds.join(', ') + '</p>';
+            result += '<p>Even numbers: ' + evens.join(', ') + '</p>';
+
+            // Display result
+            document.getElementById('resultBox').innerHTML = result;
+        }
+    </script>
+</body>
+</html>
